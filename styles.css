@@ -40,7 +40,7 @@ img {
 }
 
 .site-header {
-  background: #271f11;
+  background: #c2410c;
   color: white;
   position: sticky;
   top: 0;
@@ -144,7 +144,7 @@ button:hover {
 }
 
 .site-footer {
-  background: #111827;
+  background: #c2410c;
   color: #e5e7eb;
   text-align: center;
   padding: 1.5rem 0;
