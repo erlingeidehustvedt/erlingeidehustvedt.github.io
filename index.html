@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <meta
+      name="description"
+      content="A simple personal portfolio website built with HTML, CSS, and JavaScript."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="container nav">
+        <div class="logo">MyName</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
 
+    <main>
+      <section class="hero container">
+        <div class="hero-text">
+          <p class="eyebrow">Web Developer</p>
+          <h1>Hello, I build useful websites.</h1>
+          <p>
+            I’m learning web development and creating projects that help me grow
+            as a developer.
+          </p>
+          <button id="ctaButton">Say Hello</button>
+        </div>
+      </section>
+
+      <section id="about" class="section container">
+        <h2>About Me</h2>
+        <p>
+          I’m passionate about building clean, accessible, and responsive web
+          experiences. I enjoy learning new technologies and turning ideas into
+          working projects.
+        </p>
+      </section>
+
+      <section id="projects" class="section container">
+        <h2>Projects</h2>
+        <div class="projects">
+          <article class="card">
+            <h3>Project 1</h3>
+            <p>A personal landing page for a creative brand.</p>
+          </article>
+
+          <article class="card">
+            <h3>Project 2</h3>
+            <p>A small portfolio website built for a developer.</p>
+          </article>
+
+          <article class="card">
+            <h3>Project 3</h3>
+            <p>A business homepage with a modern, clean design.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section container">
+        <h2>Contact</h2>
+        <p>Email: hello@example.com</p>
+        <p>GitHub: github.com/yourusername</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 MyName</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
