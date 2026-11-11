@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trondheim Arbeiderparti – Valgprogram 2027–2031</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Libre+Franklin:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#d2311e;
+  --red-dark:#a8220f;
+  --ink:#1e2740;
+  --paper:#f2e9d6;
+  --paper-2:#e9dec6;
+  --sky:#b8c6dd;
+  --white:#fffaf0;
+  --head:"Oswald","League Gothic","Arial Narrow",Impact,sans-serif;
+  --body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:18px;line-height:1.6;
+  background-image:
+    radial-gradient(rgba(30,39,64,.05) 1px,transparent 1px),
+    radial-gradient(rgba(30,39,64,.035) 1px,transparent 1px);
+  background-size:7px 7px,11px 11px;background-position:0 0,3px 5px;
+}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+
+/* ---------- Topplinje ---------- */
+.topbar{
+  position:sticky;top:0;z-index:20;background:var(--red);color:var(--white);
+  border-bottom:4px solid var(--ink);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.55rem 1.2rem;
+}
+.brand{font-family:var(--head);font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  font-size:1.05rem;text-decoration:none;display:flex;align-items:center;gap:.6rem;background:none;border:0;color:inherit;padding:0}
+.brand .logo{height:30px;width:auto}
+.menu-btn{background:var(--ink);color:var(--white);border:0;font-family:var(--head);
+  text-transform:uppercase;letter-spacing:.08em;padding:.4rem .9rem;font-size:.95rem}
+.menu-btn:hover{background:#000}
+
+/* Utfellbar meny */
+.drawer{position:fixed;inset:0;z-index:30;display:none}
+.drawer.open{display:block}
+.drawer .shade{position:absolute;inset:0;background:rgba(30,39,64,.55)}
+.drawer nav{position:absolute;right:0;top:0;bottom:0;width:min(360px,88vw);background:var(--paper);
+  border-left:6px solid var(--red);padding:1.2rem 1.2rem 2rem;overflow:auto}
+.drawer h2{font-family:var(--head);text-transform:uppercase;margin:.2rem 0 1rem;font-size:1.4rem;letter-spacing:.05em}
+.drawer ol{list-style:none;margin:0;padding:0}
+.drawer li button{display:flex;gap:.8rem;align-items:baseline;width:100%;text-align:left;background:none;border:0;
+  border-bottom:2px solid var(--paper-2);padding:.6rem .2rem;color:var(--ink);font-family:var(--head);font-size:1.15rem;text-transform:uppercase;letter-spacing:.03em}
+.drawer li button:hover,.drawer li button[aria-current="true"]{color:var(--red)}
+.drawer li .n{color:var(--red);min-width:1.8em}
+.close-btn{float:right;background:var(--red);color:var(--white);border:0;width:2.2rem;height:2.2rem;font-size:1.3rem;line-height:1}
+
+/* ---------- Forside ---------- */
+.hero{position:relative;overflow:hidden;background:var(--sky);border-bottom:6px solid var(--ink)}
+.hero svg.rays{position:absolute;left:50%;top:50%;margin-top:-800px;width:1600px;max-width:none;transform:translateX(-50%);opacity:.55}
+.hero-inner{position:relative;max-width:1100px;margin:0 auto;padding:3.6rem 1.2rem 3.4rem;text-align:center}
+.kicker{display:inline-block;background:var(--ink);color:var(--white);font-family:var(--head);text-transform:uppercase;
+  letter-spacing:.18em;padding:.3rem .9rem;font-size:.95rem}
+.poster-title{font-family:var(--head);font-weight:700;text-transform:uppercase;color:var(--red);
+  line-height:.92;margin:.8rem 0 .4rem;font-size:clamp(3rem,10vw,7.4rem);letter-spacing:.01em;
+  text-shadow:3px 3px 0 var(--white),-3px -3px 0 var(--white),3px -3px 0 var(--white),-3px 3px 0 var(--white),
+              0 3px 0 var(--white),3px 0 0 var(--white),0 -3px 0 var(--white),-3px 0 0 var(--white),
+              8px 8px 0 var(--ink)}
+.poster-sub{display:inline-block;font-family:var(--head);text-transform:uppercase;font-size:clamp(1.2rem,3vw,2rem);letter-spacing:.14em;margin:1rem 0 0;background:var(--ink);color:var(--white);padding:.3rem 1.1rem}
+.skyline{display:block;width:100%;height:auto;margin-top:1rem}
+.hero-band span{display:inline-block;margin:0 .5em;white-space:nowrap}.hero-band span{margin:0 .9em}.hero-band span+span::before{content:'·';margin-right:.9em}
+.hero-band{position:relative;background:var(--red);color:var(--white);text-align:center;font-family:var(--head);text-transform:uppercase;border-top:6px solid var(--ink);
+  font-size:clamp(1rem,1.85vw,1.6rem);letter-spacing:.05em;display:flex;flex-wrap:wrap;justify-content:center;gap:.2em 0;padding:.6rem 1rem;line-height:1.1;border-top:6px solid var(--ink)}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.2rem}
+.intro{max-width:760px;margin:3rem auto 0;font-size:1.15rem}
+
+.section-label{font-family:var(--head);text-transform:uppercase;letter-spacing:.14em;font-size:1rem;color:var(--red);
+  display:flex;align-items:center;gap:1rem;margin:3.2rem 0 1.2rem}
+.section-label::after{content:"";flex:1;height:4px;background:var(--ink)}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem;padding-bottom:4rem}
+.tile{position:relative;text-align:left;border:4px solid var(--ink);background:var(--white);color:var(--ink);
+  padding:1rem 1rem 1.1rem;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:7px 7px 0 var(--ink);transition:transform .12s ease,box-shadow .12s ease}
+.tile:hover,.tile:focus-visible{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--red);outline:none}
+.tile .num{font-family:var(--head);font-weight:700;font-size:3.2rem;line-height:1;color:var(--red)}
+.tile .t{font-family:var(--head);font-weight:700;text-transform:uppercase;font-size:1.45rem;line-height:1.1;letter-spacing:.02em}
+.tile .s{font-size:.85rem;opacity:.8;margin-top:.4rem;line-height:1.35}
+.tile:nth-child(3n+2){background:var(--sky)}
+.tile:nth-child(3n){background:var(--red);color:var(--white)}
+.tile:nth-child(3n) .num{color:var(--white)}
+
+/* ---------- Kapittelvisning ---------- */
+.chapter{display:none}
+.chapter.active{display:block}
+body.home-view #home{display:block}
+.ch-head{background:var(--sky);border-bottom:6px solid var(--ink);position:relative;overflow:hidden}
+.chapter:nth-of-type(even) .ch-head{background:var(--red)}
+.chapter:nth-of-type(even) .ch-head .ch-title{color:var(--white);text-shadow:6px 6px 0 var(--ink)}
+.chapter:nth-of-type(even) .ch-head .ch-num{color:var(--ink)}
+.ch-head-inner{max-width:1100px;margin:0 auto;padding:2.6rem 1.2rem 2.2rem;position:relative}
+.ch-num{font-family:var(--head);font-weight:700;color:var(--red);font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase}
+.ch-title{font-family:var(--head);font-weight:700;text-transform:uppercase;line-height:.95;margin:.3rem 0 0;
+  font-size:clamp(2.4rem,7vw,5.2rem);color:var(--red);
+  text-shadow:3px 3px 0 var(--white),-3px -3px 0 var(--white),3px -3px 0 var(--white),-3px 3px 0 var(--white),
+              0 3px 0 var(--white),3px 0 0 var(--white),0 -3px 0 var(--white),-3px 0 0 var(--white),7px 7px 0 var(--ink)}
+.ch-head svg.rays{position:absolute;right:-220px;top:-260px;width:760px;opacity:.35;pointer-events:none}
+
+.ch-body{max-width:1100px;margin:0 auto;padding:2.4rem 1.2rem 3rem;display:grid;grid-template-columns:230px 1fr;gap:2.6rem}
+.ch-toc{position:sticky;top:5rem;align-self:start;font-size:.95rem}
+.ch-toc h3{font-family:var(--head);text-transform:uppercase;letter-spacing:.12em;font-size:.9rem;margin:0 0 .6rem;color:var(--red)}
+.ch-toc ul{list-style:none;margin:0;padding:0;border-left:4px solid var(--ink)}
+.ch-toc button{display:block;width:100%;text-align:left;background:none;border:0;padding:.35rem .8rem;color:var(--ink);line-height:1.3}
+.ch-toc button:hover{background:var(--ink);color:var(--white)}
+.content{max-width:740px}
+.ingress{font-size:1.2rem;font-weight:600;border-left:8px solid var(--red);padding-left:1.1rem;margin:0 0 2rem}
+.ingress p{margin:0 0 .9rem}
+.content h3{font-family:var(--head);font-weight:700;text-transform:uppercase;font-size:2rem;line-height:1.05;margin:2.6rem 0 .8rem;
+  letter-spacing:.02em;scroll-margin-top:5rem;display:flex;gap:.7rem;align-items:center}
+.content h3::before{content:"";width:18px;height:18px;background:var(--red);flex:none;transform:rotate(45deg)}
+.content h3:first-of-type{margin-top:1rem}
+.content h4{font-family:var(--head);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:1.2rem;
+  margin:1.6rem 0 .4rem;color:var(--red-dark)}
+.content p{margin:0 0 1rem}
+.lead-in{display:inline-block;background:var(--ink);color:var(--white);font-family:var(--head);text-transform:uppercase;
+  letter-spacing:.1em;font-size:.95rem;padding:.25rem .7rem;margin:.6rem 0 .5rem}
+ul.points{list-style:none;padding:0;margin:0 0 1.4rem}
+ul.points>li{position:relative;padding:.55rem 0 .55rem 2.1rem;border-bottom:1px dashed rgba(30,39,64,.3)}
+ul.points>li::before{content:"";position:absolute;left:.3rem;top:1.05rem;width:0;height:0;
+  border-left:12px solid var(--red);border-top:7px solid transparent;border-bottom:7px solid transparent}
+ul.points ul{margin:.4rem 0 0;padding-left:1.2rem}
+ul.points ul li{list-style:square;padding:.1rem 0}
+ul.points ul li::marker{color:var(--red)}
+.label{font-weight:800}
+
+.pager{max-width:1100px;margin:0 auto;padding:0 1.2rem 4rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.pager button{border:4px solid var(--ink);background:var(--white);color:var(--ink);font-family:var(--head);text-transform:uppercase;
+  letter-spacing:.05em;padding:.7rem 1.1rem;font-size:1.05rem;box-shadow:5px 5px 0 var(--ink);max-width:48%}
+.pager button:hover{background:var(--red);color:var(--white)}
+.pager .home{margin:0 auto}
+.pager button[hidden]{display:block;visibility:hidden}
+
+footer{background:var(--ink);color:var(--paper);text-align:center;padding:2rem 1rem;font-family:var(--head);
+  text-transform:uppercase;letter-spacing:.14em;font-size:.95rem}
+footer{background:var(--red);color:var(--white);border-top:6px solid var(--ink);padding:2.4rem 1rem 2.6rem}
+footer .vote{font-weight:700;font-size:clamp(2rem,6vw,4rem);line-height:1;letter-spacing:.03em;text-shadow:5px 5px 0 var(--ink)}
+footer .date{display:inline-block;margin-top:1rem;background:var(--ink);padding:.3rem 1rem;font-size:clamp(1.1rem,3vw,1.8rem);letter-spacing:.12em}
+
+@media (max-width:820px){
+  body{font-size:17px}
+  .ch-body{grid-template-columns:1fr;gap:1rem}
+  .ch-toc{position:static}
+  .ch-toc ul{display:flex;flex-wrap:wrap;gap:.4rem;border:0}
+  .ch-toc button{border:2px solid var(--ink);padding:.25rem .6rem;font-size:.85rem}
+  .content h3{font-size:1.6rem}
+  .ingress{font-size:1.05rem}
+  .hero-band{flex-direction:column}
+  .hero-band span+span::before{display:none}
+  .topbar{padding:.45rem .8rem}
+  .brand{font-size:.85rem;white-space:nowrap}
+  .menu-btn{white-space:nowrap;font-size:.85rem;padding:.35rem .7rem}
+  .ch-head-inner{padding:1.8rem 1.2rem 1.6rem}
+}
+@media print{
+  .topbar,.drawer,.pager,.ch-toc,#home .tiles,.section-label{display:none!important}
+  .chapter{display:block!important;break-before:page}
+  body{background:#fff;font-size:11pt}
+  .ch-body{display:block;padding:1rem 0}
+  .tile{box-shadow:none}
+}
+</style>
+</head>
+<body class="home-view">
+
+<header class="topbar">
+  <button class="brand" data-go="home" aria-label="Til forsiden">
+    
+    Trondheim Arbeiderparti
+  </button>
+  <button class="menu-btn" id="openMenu" aria-haspopup="true">Kapitler ☰</button>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="shade" data-close></div>
+  <nav aria-label="Kapitler">
+    <button class="close-btn" data-close aria-label="Lukk meny">×</button>
+    <h2>Innhold</h2>
+    <ol id="drawerList"></ol>
+  </nav>
+</div>
+
+<main>
+<!-- =================== FORSIDE =================== -->
+<section id="home" class="chapter">
+  <div class="hero">
+    <svg class="rays" viewBox="-800 -800 1600 1600" aria-hidden="true">
+      <g fill="#fffaf0">
+        <!-- solstråler -->
+        <g id="ray"><path d="M0 0 L-40 -800 L40 -800 Z"/></g>
+      </g>
+    </svg>
+    <div class="hero-inner">
+      <h1 class="poster-title">Trondheim<br>Arbeiderparti</h1>
+      <p class="poster-sub">Valgprogram 2027–2031</p>
+
+    </div>
+    <div class="hero-band"><span>En mer praktisk skole</span><span>En trygg eldreomsorg</span><span>Levende, gode bydeler</span></div>
+  </div>
+
+  <div class="wrap">
+    <div class="intro">
+      <p>Trondheim skal være en mangfoldig, trygg og inkluderende by med sterke fellesskap, der vi tar vare på hverandre og utvikler byen vår sammen. I Trondheim har vi lange og gode tradisjoner for å løse store og små samfunnsoppgaver i fellesskap.</p>
+      <p>Alle skal ha like muligheter til å delta i samfunnslivet og til å skape et godt og meningsfylt liv for seg og sine. Vi vil arbeide aktivt mot alle former for utenforskap. For oss er alle mennesker like betydningsfulle.</p>
+      <p>Arbeiderpartiet vil ha et samfunn bygd på frihet, solidaritet og like muligheter for alle. Dette er grunnlaget for Arbeiderpartiets program og for hvordan vi vil styre Trondheim.</p>
+    </div>
+    <div class="section-label">Velg kapittel</div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+</section>
+
+<!-- =================== 1 ANSVARLIG STYRING =================== -->
+<section class="chapter" id="ansvarlig-styring" data-title="Ansvarlig styring" data-sub="Økonomi, eiendomsskatt, styringsform og fellesskapets ansvar">
+  <div class="ch-body"><div class="content">
+    <div class="ingress">
+      <p>Arbeiderpartiet vil sørge for at Trondheim styres ansvarlig. Det betyr å sikre en økonomisk bærekraftig forvaltning, slik at både innbyggere og ansatte vet at tjenestene deres alltid er trygge. Vi vil videreføre ordningen med en økonomisk buffer, slik at kommunen har ryggrad til å stå gjennom midlertidige svingninger i norsk økonomi.</p>
+      <p>Arbeiderpartiet ønsker også å styrke dialogen med næringslivet, arbeidstaker- og arbeidsgiverorganisasjonene og andre aktører i bysamfunnet.</p>
+    </div>
+
+    <h3>Nei til å øke eiendomsskatten</h3>
+    <p>Folks trygghet avhenger av en trygg økonomisk hverdag. Internasjonale kriser og ustabilitet har ført til at vanlige folk her hjemme har blitt møtt med økte priser og trangere tider. I denne situasjonen mener Trondheim Arbeiderparti at det vil være feil å øke eiendomsskatten utover ordinær KPI-justering i perioden 2027–2031.</p>
+
+    <h3>Høyre-byrådet har skapt mer uforutsigbarhet</h3>
+    <p>Trondheim Ap sluttet opp om innføringen av parlamentarisme for å få en tydeligere plassering av politisk ansvar. Høyre-byrådet har imidlertid skadet innføringen av modellen, fordi parlamentarismen under disse partiene har vært preget av kaos og ansvarsfraskrivelse. Det har ført til mer uforutsigbarhet, både for innbyggerne og for næringslivet.</p>
+    <p>Trondheim Arbeiderparti er åpent for å vurdere den videre politiske styringsformen i Trondheim sammen med våre samarbeidspartier etter valget.</p>
+    <p>Vi har hele tiden påpekt at en mer praktisk skole og en god eldreomsorg der trygghet ikke har en prislapp, er viktigere for folk enn hvordan det politiske nivået velger å organisere seg. Uavhengig av styringsform vil medvirkning fra de ansattes organisasjoner stå sentralt for Arbeiderpartiet. Dette vil være førende for oss når vi går inn i forhandlinger etter valget.</p>
+
+    <h3>Trygghet for utdanning, helse og alderdom er fellesskapets ansvar</h3>
+    <p>Det er fellesskapets ansvar å sikre innbyggerne en mer praktisk skole der flere kan lykkes, og at du blir tatt godt vare på når helsen svikter og du trenger hjelp. Privatisering av disse kjerneoppgavene undergraver fellesskapets ansvar.</p>
+    <p>Vi mener at private har en viktig rolle i å løse enkelte kommunale oppgaver, for eksempel entreprenørtjenester, snørydding og veivedlikehold. Der det er klokt, skal vi benytte oss av private aktører. Men Arbeiderpartiet sier nei til Høyre og Frps ønske om å privatisere og anbudsutsette folks trygghet.</p>
+  </div></div>
+</section>
+
+<!-- =================== 2 HELSE OG VELFERD =================== -->
+<section class="chapter" id="helse-og-velferd" data-title="Helse og velferd" data-sub="Eldreomsorg, helse, sosiale tjenester og kvalifisering">
+  <div class="ch-body"><div class="content">
+    <div class="ingress">
+      <p>Helse- og velferdstjenestene i Trondheim skal være offentlig styrt, tilgjengelige for alle og bygge på fellesskapets ansvar.</p>
+    </div>
+
+    <h3>Eldreomsorg</h3>
+    <p>For Ap er eldreomsorgen en av de aller viktigste sakene. Vi vil legge til rette for at eldre kan leve aktive og selvstendige liv gjennom forebyggende og helsefremmende tiltak. Alle skal være trygge på at fellesskapet stiller opp med nødvendige helse- og omsorgstjenester når behovet oppstår. Trondheim skal ikke ha stoppeklokkeomsorg.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+
+    <h4>Bo hjemme lenger</h4>
+    <ul class="points">
+      <li>Få på plass flere tilpassede boliger for eldre.</li>
+      <li>Øke kapasiteten i aktivitetstilbudene.</li>
+      <li>Styrke hjemmetjenesten.</li>
+      <li>Ta i bruk bydelskafeene som møtesteder.</li>
+      <li>Garantere gratis trygghetsalarm – trygghet skal ikke ha en prislapp.</li>
+      <li>Sikre nok korttids-, avlastnings- og rehabiliteringsplasser.</li>
+      <li>Styrke helsestasjonen for eldre, slik at den også omfatter tjenester i bydelene.</li>
+      <li>Øke tilskuddene til seniorkultur.</li>
+      <li>Støtte lokale idrettslag og frivillige organisasjoner, slik at flere kan delta i fysisk aktivitet uavhengig av økonomi.</li>
+    </ul>
+
+    <h4>Flere sykehjemsplasser og økt bemanning</h4>
+    <ul class="points">
+      <li>Øke grunnbemanningen i sykehjemmene og helsehusene.</li>
+      <li>Fortsette utbyggingen av sykehjem og gi plass til alle som trenger det.</li>
+      <li>Etablere flere spesialavdelinger og styrke fagmiljøet for brukere med spesielle behov.</li>
+      <li>Styrke tjenestene gjennom flere yrkesgrupper med ulik kompetanse, og videreføre satsingen på aktivitører i sykehjem og helsehus.</li>
+      <li>Få flere aktivitører ut i enhetene.</li>
+    </ul>
+
+    <h4>Bedre rekruttering</h4>
+    <ul class="points">
+      <li>Gjøre hele, faste stillinger til hovedregelen.</li>
+      <li>Opprette flere stillinger for lærlinger.</li>
+      <li>Sørge for bedre oppgavedeling mellom yrkesgruppene.</li>
+      <li>Sikre god fagkompetanse i helse- og omsorgstjenestene gjennom langsiktige kompetanseplaner og samarbeid med utdanningsinstitusjonene.</li>
+      <li>Tilrettelegge for seniorer og ansatte med funksjonsnedsettelser eller redusert arbeidsevne, slik at flere kan delta i arbeidslivet og stå lenger i jobb.</li>
+    </ul>
+
+    <h4>Motvirke digitalt utenforskap</h4>
+    <ul class="points">
+      <li>Motvirke digitalt utenforskap ved å tilby digital veiledning i tjenestene, opplæring på dagsentrene og støtte til frivillige digitale tilbud for seniorer.</li>
+    </ul>
+
+    <h3>Helse</h3>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <h4>Legetjenester</h4>
+    <ul class="points">
+      <li>Sikre at alle innbyggere i Trondheim har tilbud om fastlege, og at det finnes nok ressurser til å løse de kommunale legeoppgavene, inkludert legevakttjenesten.</li>
+    </ul>
+    <h4>Lavterskeltilbud innen psykisk helse og rus</h4>
+    <ul class="points">
+      <li>Styrke tilbudet i nært samarbeid med spesialisthelsetjenesten og ideelle og frivillige organisasjoner.</li>
+      <li>Sikre flere egnede og tilpassede boliger for personer med psykiske helseutfordringer og rusutfordringer.</li>
+    </ul>
+
+    <h3>Sosiale tjenester</h3>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li><span class="label">BoA – bo- og aktivitetstilbudet:</span> Prioritere gode botilbud, aktivitetstilbud og kompetente ansatte for beboerne i BoA.</li>
+      <li><span class="label">BPA – brukerstyrt personlig assistanse:</span> Videreutvikle BPA som et likestillingsverktøy som gir personer med bistandsbehov et aktivt og selvstendig liv.</li>
+    </ul>
+
+    <h3>Kvalifisering og velferd</h3>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li><span class="label">Flere i arbeid:</span> Intensivere innsatsen for unge som står utenfor arbeidslivet, gjennom arbeidstrening og praksisplasser.</li>
+      <li><span class="label">Flyktningtjenesten:</span> Opprette en minoritetsrådgiver og styrke veien til arbeid og utdanning for nye innbyggere.</li>
+      <li><span class="label">Sosialhjelp:</span> Bidra til at flere kommer i arbeid, og sikre sosialhjelpssatser som gir barn og voksne mulighet til å leve verdige liv.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- =================== 3 TRYGG OPPVEKST =================== -->
+<section class="chapter" id="trygg-oppvekst" data-title="Trygg oppvekst" data-sub="Barnehage, SFO, fritid og psykisk helse, barnevern">
+  <div class="ch-body"><div class="content">
+    <div class="ingress">
+      <p>I Trondheim skal barn og unge få vokse opp i trygge fellesskap der de opplever omsorg, tilhørighet og muligheter til å utvikle seg. Arbeiderpartiets oppvekstpolitikk bygger på fellesskap, små forskjeller og tidlig innsats. Barn og unge skal møtes av trygge voksne, gode tjenester og et samfunn som stiller opp når det trengs. Barn skal ikke oppleve at familiens økonomi, bosted eller livssituasjon begrenser mulighetene deres til å delta, mestre og høre til.</p>
+    </div>
+    <p>Økende forskjeller i samfunnet rammer barn hardest. Kommunen må derfor bidra til å utjevne sosiale forskjeller gjennom gode velferdsordninger. Forebygging er god samfunnsøkonomi. Tidlig innsats, trygge møteplasser, tilgjengelige helsetjenester og et sterkt sikkerhetsnett er avgjørende for å sikre barn og unge en god og trygg oppvekst.</p>
+    <p>Arbeiderpartiet vil styrke innsatsen rundt barna der de lever livene sine. Barn og unge skal møtes av tjenester som samarbeider, er tilgjengelige og har nok ressurser. Vi tror på fagfolk, tillit og fellesskap. Barns behov skal alltid veie tyngre enn budsjetter og markedstenkning.</p>
+
+    <h3>Barnehage</h3>
+    <p>Barnehagen er en av våre viktigste velferdsordninger og en sentral arena for lek, læring, utvikling og omsorg. En god barnehage gir barn en trygg og god start på livet og bidrar til å utjevne sosiale forskjeller. Høy kvalitet i barnehagene forutsetter kompetente ansatte, tilstrekkelig bemanning og gode støttefunksjoner.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Styrke grunnbemanningen og videreføre og utvide satsingen på ekstra bemanning, slik at barnehagene har nok ansatte med relevant kompetanse gjennom hele åpningstiden. Dette skal også omfatte flere miljøarbeidere.</li>
+      <li>Holde barnehageprisen lav.</li>
+      <li>Sikre et sunt og variert kosthold i barnehagene.</li>
+      <li>Ivareta støttefunksjonene i barnehagene, som godt renhold og PPT.</li>
+      <li>Prioritere tidlig innsats og forebyggende arbeid allerede fra barnehagealder.</li>
+      <li>Sikre trygge og sammenhengende overganger fra barnehage til skole og SFO, gjennom godt samarbeid mellom ansatte, barn og foresatte.</li>
+    </ul>
+
+    <h3>SFO</h3>
+    <p>Skolefritidsordningen er en viktig del av hverdagen til mange barn og familier. SFO skal være en trygg arena for lek, aktivitet, vennskap og mestring. Arbeiderpartiet vil at tilbudet skal være inkluderende og tilgjengelig, og bidra til at alle barn kan delta uavhengig av familiens økonomi.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Senke prisen på SFO for elever på 4. trinn.</li>
+      <li>Sikre at barn med behov for tilrettelegging også får nødvendig oppfølging i SFO.</li>
+      <li>Legge til rette for mer fysisk aktivitet, lek, kultur og fritidsaktiviteter i SFO, og sikre et trygt, inkluderende og godt tilbud.</li>
+      <li>Få flere miljøarbeidere i SFO.</li>
+    </ul>
+
+    <h3>Fritid og psykisk helse</h3>
+    <p>Alle barn og unge skal ha like muligheter til å delta i fellesskapet, uavhengig av familiens økonomi. Fritidsklubber, kulturtilbud, idrett, møteplasser og lavterskel helsetilbud gir tilhørighet, vennskap og mestring. Dette er viktige virkemidler for å forebygge utenforskap, ensomhet og kriminalitet.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Opprette flere gratis eller rimelige fritids- og aktivitetstilbud for barn og unge.</li>
+      <li>Sikre lavterskel psykisk helsehjelp for barn og unge, også uten krav om henvisning.</li>
+      <li>Utvide helsestasjonstilbudet for unge i bydelene.</li>
+      <li>Gi natteravnene gratis bussbillett.</li>
+      <li>Sikre at foreldre, lærere og andre samarbeidspartnere får god veiledning og har informasjon om kommunens tilbud og kurs.</li>
+      <li>Legge til rette for en mer inkluderende russetid, i dialog med russen, ved å gi russen områder å være på. Det skal forebygge ekskludering og bidra til en god russefeiring.</li>
+    </ul>
+
+    <h3>Barnevern og tidlig innsats</h3>
+    <p>Noen barn og familier trenger ekstra støtte, og da må samfunnet stille opp. Barnevernet skal være et sikkerhetsnett og ikke en tjeneste som først kommer når problemene har blitt for store. For Arbeiderpartiet handler dette om å bygge sterke lag rundt barnet og sikre at hjelpen kommer i tide.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Styrke bemanningen i barnevernet, slik at de ansatte får tid til å følge opp barn og familiene deres. Barnevernet skal ha handlingsrom til å jobbe forebyggende.</li>
+      <li>Styrke samhandlingen mellom barnevern, barnehage, skole, helsetjenester, fritidstilbud, politi og andre aktuelle samarbeidspartnere, og prioritere tidlig innsats for barn og familier med sammensatte behov.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- =================== 4 SKOLE =================== -->
+<section class="chapter" id="skole" data-title="Skole" data-sub="En mer praktisk skole – der alle kan lykkes">
+  <div class="ch-body"><div class="content">
+    <div class="ingress">
+      <p>Under Arbeiderpartiets ledelse skal Trondheim bli et nasjonalt fyrtårn for en mer praktisk skole – en skole der flere kan lykkes.</p>
+    </div>
+
+    <h3>En mer praktisk skole – der alle kan lykkes</h3>
+    <p>Altfor mange unger synes skolen er kjedelig. Noen trenger nye utfordringer. Mange klarer ikke å henge med. Altfor mange unger opplever ikke mestring i skolen. Noen faller fra og makter ikke å gjennomføre skoleløpet. De trenger nye løsninger – ikke gammeldagse svar. Høyre, som i dag styrer byen vår, står for en skolepolitikk med mer nivådeling, mer pugging og mer testing. Dette er det siste elevene trenger.</p>
+    <p>Skolen er en arena for sosialisering, inkludering, læring og mestring – en institusjon som skal danne framtidens medborgere. Vi vil ha en skole som i større grad forbereder elevene på det virkelige livet.</p>
+    <p>Skolehverdagen må bli mer praktisk, variert og aktiv, slik at motivasjonen øker og elevene lærer mer. En mer praktisk opplæring vil favne flere elever og motvirke frafall. Vi jobber for en skole der alle får mulighet til å lykkes. Da trenger vi en mer praktisk skole.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Sørge for at skolene får mer penger til praktisk utstyr og oppdaterte, fysiske lærebøker.</li>
+      <li>Øke lærertettheten i Trondheimsskolen utover lærernormen.</li>
+      <li>Styrke hele laget rundt eleven, blant annet ved å øke antallet miljøarbeidere og sette inn mangfoldsrådgivere i Trondheimsskolen.</li>
+      <li>Investere i flere tilrettelagte lokaler for praktisk læring, som naturfag- og matterom, sløydsal og skolekjøkken.</li>
+      <li>Sette av ressurser til å styrke kompetansen i praktisk læring blant lærere og andre ansatte.</li>
+      <li>Samarbeide tettere med lærernes fagorganisasjoner.</li>
+      <li>Sette i gang pilotprosjekter for å prøve ut ulike modeller for mer praktisk undervisning.</li>
+      <li>Samarbeide tettere med NTNU for å kartlegge og utvikle pedagogisk metodikk for mer praktisk læring.</li>
+      <li>Samarbeide tettere med LO, NHO og andre aktuelle parter for å tilpasse skolen til det faktiske arbeidslivet, med større vekt på ferdighetene arbeidslivet etterspør. Det gir et sterkere næringsliv og tryggere arbeidsplasser.</li>
+      <li>Fortsette Ap-regjeringens arbeid med å gjenreise læreren som sjef i klasserommet. Tydelige rammer gir tryggere elever.</li>
+      <li>Bekjempe mobbing og utenforskap i skolen ved å sette av mer egne ressurser til dette arbeidet og styrke hele laget rundt elevene.</li>
+      <li>Sette av ressurser til mer utadrettet virksomhet i skolen, som bedrifts- og institusjonsbesøk.</li>
+      <li>Styrke opplæringen om digitalisering, sosiale medier og kunstig intelligens i Trondheimsskolen, og sette av ressurser til kompetanseheving for personalet.</li>
+      <li>Innføre gratis mensenprodukter i grunnskolen.</li>
+      <li>Støtte og legge til rette for alternative læringsarenaer.</li>
+    </ul>
+    <p>Kort sagt skal vi endre skolen og sette sterkere fokus på mestring gjennom øvelse. Der høyresiden vil ha mer pugging og testing, vil Ap ha mer trening og mestring. Vi skal gå fra «pugge-skolen» til «jeg fikk det til!»-skolen – fra «læring for vurdering» til «vurdering for læring». Læring og mestring skal stå i sentrum, ikke prøver.</p>
+    <p>Trondheim Ap ønsker et mangfold av skoler, tilpasset bydelene våre. De siste årene har krefter på høyresiden skapt usikkerhet rundt framtiden for flere skoler i Trondheim. Arbeiderpartiet vil slå ring om de små og mellomstore skolene og kjempe mot at de legges ned. Lokal tilhørighet til skolen er viktig. Vi vil derfor verne om nærskoleprinsippet og sikre barn tilhørighet til skole og nærmiljø.</p>
+  </div></div>
+</section>
+
+<!-- =================== 5 KULTUR =================== -->
+<section class="chapter" id="kultur-idrett-friluftsliv" data-title="Kultur, idrett og friluftsliv" data-sub="Møteplasser, idrettsanlegg, frivillighet og nærmiljø">
+  <div class="ch-body"><div class="content">
+    <div class="ingress">
+      <p>Vårt løfte er at idrett, kunst og kultur skal være tilgjengelig for alle i Trondheim! Da må tilbudene være rimelige og finnes nær der folk bor.</p>
+    </div>
+    <p>For Trondheim Arbeiderparti er kultur og idrett en vesentlig del av et levende lokalsamfunn, og med på å skape fellesskap, tilhørighet og trygghet. Kulturelle møteplasser og frivillighet bygger sosial beredskap og gjør oss mer robuste når noe skjer. Samtidig har kultur, idrett og friluftsliv stor betydning for folkehelsen, fordi de skaper trivsel og aktivitet på mange områder.</p>
+    <p>For å nå målet vil vi planlegge og bygge flerbrukslokaler tilrettelagt for både kultur og idrett, og alltid ivareta frivilligheten som et fundament i samfunnet vårt.</p>
+
+    <h3>Kultur og møteplasser</h3>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Sikre planer som gir rom for deltakelse, ivaretar mangfoldet og legger til rette for næringsutvikling.</li>
+      <li>Samarbeide med kommunalt råd for kultur om videre utvikling av kulturfeltet.</li>
+      <li>Bevare og styrke kulturskolen som et kommunalt tilbud for alle, og holde elevkostnaden lav.</li>
+      <li>Styrke bibliotekene i byen og ta vare på dem som viktige sosiale møteplasser og gode steder for kunnskap og litteratur.</li>
+      <li>Styrke tilbudet innen seniorkultur.</li>
+      <li>Sikre at alle ungdommer har tilgang til minst én ungdomsklubb med kvalitetssikret innhold.</li>
+      <li>Sikre gode museumstilbud innen kunst og form.</li>
+      <li>Bidra til fortgang i saken om nytt museum for kunst og form.</li>
+      <li>Støtte opp om viktige kulturarrangementer som Olavsfest, Pstereo, Kosmorama og Pride-festivalen.</li>
+      <li>Bevare Trondheim kino som kommunal kino, og fjerne kravet om utbytte for å sikre billigere billetter.</li>
+      <li>Styrke satsingen på Trondheim som både «matby» og «pilegrimshovedstad».</li>
+      <li>Sørge for en inkluderende og allsidig feiring av 2030-jubileet.</li>
+      <li>Bidra til å fremme pilegrimsbyen Trondheim under Nasjonaljubileet 2030.</li>
+      <li>Innføre støtteordninger for å inkludere flest mulig i kultur-, idretts- og fritidstilbud.</li>
+    </ul>
+
+    <h3>Idrett og aktivitet</h3>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Bygge flere idrettsflater og anlegg for både bredde- og toppidrett.</li>
+      <li>Sikre areal til idrettsformål i nye utbyggingsområder.</li>
+      <li>Ha et særlig fokus på tiltak som ivaretar breddeidretten, og sikre trenings- og konkurransetid for barn og unge.</li>
+      <li>Stille med kommunale lånegarantier til idrettslag for å forenkle lokal anleggsutvikling.</li>
+      <li>Bygge og rehabilitere skøytehall/ishall på Leangen, og gjennomføre byggingen av ishall på Tiller.</li>
+      <li>Bygge et bydelsbasseng i øst.</li>
+      <li>Styrke og bevare utlånssentralene for gratis utlån av idrettsutstyr, for å bygge ned økonomiske barrierer.</li>
+      <li>Bygge et friidrettsanlegg i den sørlige delen av Trondheim.</li>
+      <li>Bidra til gode vilkår for idrettslagene, blant annet gjennom gratis hall- og baneleie.</li>
+      <li>Sikre gode treningstilbud uansett funksjonsnivå.</li>
+      <li>Øke kommunens støtte til drift og vedlikehold av anlegg som eies av idrettslagene.</li>
+    </ul>
+
+    <h3>Friluftsliv, frivillighet og nærmiljø</h3>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Ivareta og styrke byens frivilligsentraler.</li>
+      <li>Legge til rette for god tilgang til markaområdene og for bruk av marka, blant annet med benker, bord og griller som er tilgjengelige for alle.</li>
+      <li>Ivareta byens parker og nærområder, og ta vare på Nidelvstien og Ladestien som gode turløyper.</li>
+      <li>Ivareta lysløypenettet i Trondheim.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- =================== 6 ARBEIDSLIV =================== -->
+<section class="chapter" id="arbeidsliv" data-title="Arbeidsliv" data-sub="Hele stillinger, seriøst arbeidsliv, kompetanse og flere i arbeid">
+  <div class="ch-body"><div class="content">
+    <div class="ingress">
+      <p>Arbeid til alle er jobb nummer én. Et trygt arbeidsliv gir mennesker frihet, økonomisk trygghet og mulighet til å delta i fellesskapet.</p>
+    </div>
+    <p>Trondheim kommune skal gå foran som en ansvarlig arbeidsgiver og bruke sin rolle som innkjøper og samfunnsaktør til å fremme et seriøst og organisert arbeidsliv.</p>
+
+    <h3>Faste og hele stillinger</h3>
+    <p>Faste og hele stillinger skal være hovedregelen i Trondheim kommune. Det er et mål at ansatte som jobber ufrivillig deltid, tilbys større eller hele stillinger. Vi vil styrke grunnbemanningen i velferdstjenestene og redusere behovet for innleie og midlertidige ansettelser.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Etablere en kommunal vikarpool som gir flere faste ansettelser og bedre kontinuitet i tjenestene.</li>
+      <li>Gjeninnføre det interne arbeidsmarkedet (DIA) i Trondheim kommune, for å gi ansatte større trygghet og forutsigbarhet, blant annet ved omstilling og overtallighet.</li>
+      <li>Sørge for at Trondheim kommune arbeider aktivt for å rekruttere og tilrettelegge for personer med nedsatt funksjons- og arbeidsevne.</li>
+      <li>Arbeide for å redusere bemanningsbyråenes rolle i arbeidslivet og begrense innleie der dette utfordrer faste ansettelser.</li>
+    </ul>
+
+    <h3>Et seriøst og organisert arbeidsliv</h3>
+    <p>Et trygt og rettferdig arbeidsliv forutsetter sterke fagorganisasjoner, seriøse arbeidsgivere og tydelige krav fra det offentlige. Offentlige midler skal ikke bidra til sosial dumping eller useriøse virksomheter. Kommunens anskaffelser, eierskap og økonomiske virkemidler skal brukes til å belønne virksomheter som satser på egne ansatte, lærlinger og fagkompetanse.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Stille tydelige krav i kommunens anskaffelser til seriøsitet, tarifferte lønns- og arbeidsvilkår (fortrinnsvis tariffavtale), bruk av lærlinger, fagbrev, faste ansettelser og hele stillinger.</li>
+    </ul>
+
+    <h3>Kompetanse og utdanning</h3>
+    <p>Et trygt og framtidsrettet arbeidsliv krever investering i kompetanse. Trondheim skal være en kommune der unge og voksne får mulighet til å fullføre utdanning, ta fagbrev og utvikle kompetansen sin gjennom hele yrkeslivet. Trondheim kommune skal ta et større ansvar for å utdanne framtidens fagarbeidere.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Øke antallet læreplasser i kommunens egne virksomheter og stille krav om bruk av lærlinger i kommunale anskaffelser.</li>
+      <li>Samarbeide med partene i arbeidslivet og utdanningssektoren for å sikre at flere fullfører fag- og yrkesopplæringen, og at kompetansen samsvarer med behovene i arbeidslivet.</li>
+    </ul>
+
+    <h3>Flere i arbeid</h3>
+    <p>Trondheim Arbeiderparti vil at flere skal få muligheten til å bidra og oppleve tryggheten og fellesskapet som følger med arbeid. Å få unge som av ulike årsaker står utenfor arbeid og utdanning, inn i jobb er en viktig samfunnsoppgave.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Sørge for at Trondheim kommune tar en mer aktiv rolle i å hjelpe mennesker inn i arbeidslivet ved å tilby arbeidstrening innen samfunnsnyttige oppgaver. Målet skal være å gi flere arbeidserfaring, kompetanse og en vei videre til fast arbeid.</li>
+      <li>Samarbeide tett med partene i arbeidslivet og NAV for å få flere unge ut i jobb og utdanning.</li>
+      <li>Utvide Ung i jobb-tilbudet når det gjelder yrker og arbeidstid, med mål om 250 arbeidsplasser, og endre ordningen slik at man kan søke fra og med det året man fyller 16 år.</li>
+    </ul>
+
+    <h3>Arbeid, helse og fritid</h3>
+    <p>Arbeidslivet skal være organisert slik at mennesker kan stå i jobb gjennom et langt yrkesliv. Arbeidstidsordningene må ivareta arbeidstakernes helse og gi mulighet til å kombinere arbeid med familie og fritid.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Arbeide for å bevare søndagen som fridag.</li>
+      <li>Begrense nattarbeid og belastende arbeidstidsordninger der det er mulig.</li>
+      <li>Utvikle arbeidstidsordninger i samarbeid med partene i arbeidslivet.</li>
+      <li>Forebygge sykefravær gjennom tilstrekkelig grunnbemanning, forsvarlig arbeidsbelastning, individuell tilrettelegging og systematisk arbeidsmiljøarbeid.</li>
+      <li>Styrke ordningen med arbeidstøy for ansatte i Trondheim kommune.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- =================== 7 NÆRINGSLIV =================== -->
+<section class="chapter" id="naeringsliv" data-title="Næringsliv" data-sub="Næringsareal, forskning, landbruk og et seriøst næringsliv">
+  <div class="ch-body"><div class="content">
+    <div class="ingress">
+      <p>Trondheim skal være en næringsvennlig kommune. Trondheim Arbeiderparti vil føre en offensiv næringspolitikk som skaper arbeidsplasser, øker verdiskapingen og gjør det attraktivt å etablere og utvikle virksomheter i kommunen.</p>
+    </div>
+    <p>Grønn omstilling er både en stor endring og en stor mulighet. Trondheim har sterke fortrinn gjennom kunnskapsmiljøene, et variert næringsliv og kompetent arbeidskraft. Vi vil styrke samarbeidet mellom kommunen, næringslivet, fagbevegelsen og kunnskapsmiljøene for å utvikle framtidens arbeidsplasser og næringsliv.</p>
+    <p>Kommunen skal være en aktiv medspiller med rask og forutsigbar saksbehandling, nok næringsareal, god infrastruktur og tett dialog med bedriftene.</p>
+
+    <h3>Areal for arbeidsplasser og industri</h3>
+    <p>Trondheim trenger nok næringsareal for å skape framtidens arbeidsplasser. Byutviklingen må sikre plass til både boliger, næringsliv og industri. Kommuneplanens arealdel (KPA) skal rulleres for å sikre tilstrekkelige næringsarealer. Bedrifter som må flytte på grunn av utviklingen på Nyhavna, skal sikres egnede erstatningsarealer. Gode kollektivforbindelser skal gjøre næringsområdene tilgjengelige for arbeidstakerne.</p>
+
+    <h3>Forskning og arbeidsplasser</h3>
+    <p>Trondheims sterke forsknings- og teknologimiljøer er et viktig konkurransefortrinn. Vi vil styrke samarbeidet mellom kommunen, NTNU, SINTEF og næringslivet for å tiltrekke oss nye bedrifter, investeringer og kompetanse, og legge til rette for at flere ideer og mer teknologi utviklet i Trondheim blir kommersialisert og skaper arbeidsplasser her.</p>
+    <p>Nyhavna har en unik kombinasjon av sjøtilgang, industriareal og nærhet til sterke forskningsmiljøer som Norsk havteknologisenter. Vi vil sikre arealer til ny industri innen havteknologi og legge til rette for at teknologi utviklet i Trondheim også kan industrialiseres her. Ambisjonen er at Trondheim skal bli et internasjonalt tyngdepunkt for forskning, teknologi og industri knyttet til havet.</p>
+
+    <h3>Trondheim skal være en offensiv landbrukskommune</h3>
+    <p>Trondheim er en viktig landbrukskommune, og vi skal støtte opp om denne viktige næringen. Vi skal bruke kommunens innkjøpsmakt til å skape et mer stabilt marked for lokal matproduksjon. Vi vil prioritere rekruttering gjennom veiledning til unge og nye bønder, en godt tilgjengelig landbruksvikarordning, god veterinærdekning og støtte til gårdsbruk som satser på husdyr og beite.</p>
+
+    <h3>Et seriøst og konkurransedyktig næringsliv</h3>
+    <p>Trondheim skal være en god kommune for bedrifter som tar ansvar for sine ansatte og bidrar til fellesskapet. Kommunen skal bruke innkjøpsmakten sin til å fremme et seriøst arbeidsliv med lærlinger, faste hele stillinger, fagkompetanse og ordnede lønns- og arbeidsvilkår. Trepartssamarbeidet mellom kommunen, fagbevegelsen og næringslivet skal brukes aktivt for å møte kompetansebehov og utvikle nye muligheter innen blant annet bygg, industri, energi og teknologi.</p>
+    <p>Når markedet svikter, skal kommunen bruke handlingsrommet sitt for å opprettholde aktivitet, kompetanse og arbeidsplasser. Ved nedgang i bygg- og anleggsnæringen vil vi for eksempel framskynde nødvendig vedlikehold og planlagte kommunale bygge- og investeringsprosjekter.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Føre en offensiv næringspolitikk som skaper flere arbeidsplasser og økt verdiskaping.</li>
+      <li>Gjøre Trondheim attraktivt for etablering, investering og vekst, med raskere og mer forutsigbar saksbehandling.</li>
+      <li>Sikre nok og egnede næringsarealer – 3000 nye dekar.</li>
+      <li>Styrke samarbeidet mellom kommunen, NTNU, SINTEF, næringslivet og fagbevegelsen, og bidra til at forskning blir til nye bedrifter og arbeidsplasser.</li>
+      <li>Føre en næringspolitikk med god balanse mellom boliger, næringsliv og arbeidsplasser, og gode kollektivforbindelser til næringsområdene.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- =================== 8 BYUTVIKLING =================== -->
+<section class="chapter" id="byutvikling" data-title="Byutvikling, samferdsel og miljø" data-sub="Bolig, samferdsel, natur og miljø, beredskap">
+  <div class="ch-body"><div class="content">
+    <div class="ingress">
+      <p>Trondheim er i vekst, og valgene vi tar i byutviklingen, vil prege hverdagen til folk i lang tid framover.</p>
+    </div>
+    <p>Byutvikling handler om mer enn hvor høyt og tett vi bygger. Det handler om hvordan byen henger sammen, og om den fungerer for dem som bor her. Fortetting kan være nødvendig for å ta vare på natur og redusere utslipp.</p>
+    <p>Samtidig skal byen utvikles med gode møteplasser, grøntområder og fellesarenaer. En by der folk møtes oftere, blir sterkere. Derfor må hensynet til sosial bærekraft ligge fast når byen utvikles videre, sammen med klima- og miljømålene.</p>
+    <p>Bydelene og nærmiljøene er grunnmuren i Trondheim. Framtidas by skal gi rom for fellesskap, trygghet og tilhørighet der folk bor og lever livene sine. Arbeiderpartiet vil utvikle alle deler av kommunen, ikke bare de mest sentrale.</p>
+
+    <h3>Boligpolitikk</h3>
+    <p>Arbeiderpartiet står for en boligpolitikk som sikrer nok boliger til en overkommelig pris. For oss er det et mål at så mange som mulig kommer seg inn på boligmarkedet.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Sørge for at boligutbyggingen følger takten i befolkningsveksten, med mål om 2000 boliger per år.</li>
+      <li>Utvikle bydelene og sikre kort vei til servicefunksjoner som lege, tannlege, helsestasjon, apotek og dagligvarebutikk der folk bor.</li>
+      <li>Bygge ut seniorboliger i bydelene.</li>
+      <li>Legge til rette for utbygging av studentboliger.</li>
+      <li>Stille strengere krav til arkitektonisk kvalitet, estetikk og bokvalitet.</li>
+    </ul>
+
+    <h3>Næringsareal</h3>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Rullere kommuneplanens arealdel (KPA) og sikre 3000 dekar nytt næringsareal, for å trygge og skape flere arbeidsplasser.</li>
+    </ul>
+
+    <h3>Samferdsel og miljøpakken</h3>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Sikre finansiering fra miljøpakken for:
+        <ul>
+          <li>Byåsentunnelen</li>
+          <li>Bynesveien, Trolla (tunnel)</li>
+          <li>Brundalsforbindelsen del II</li>
+          <li>pendlerparkering ved innfartsveiene fra sør og nord</li>
+        </ul>
+      </li>
+      <li>Styrke kollektivtilbudet i hele byen, med særlig vekt på bydelene.</li>
+      <li>Satse mer på kollektivtrafikk – billigere bussbilletter, flere ruter og flere avganger.</li>
+      <li>Få flere drosjer for buss (bestillingstransport).</li>
+      <li>Tilby bestillingstransport også på kveldstid.</li>
+      <li>Utrede en mulig forlengelse av trikkelinja på Gråkallbanen.</li>
+      <li>Utrede togdrift på Stavne–Leangen-banen.</li>
+      <li>Gjøre dagens bomsystem mer rettferdig og bedre utformet.</li>
+      <li>Si nei til å etablere godsterminal på Heggstadmoen.</li>
+      <li>Arbeide for en tydeligere regulering av elsparkesykler, og legge til rette for å hindre konflikter mellom ulike trafikantgrupper.</li>
+      <li>Arbeide for regional reservekapasitet og alternative forsynings- og transportveier.</li>
+      <li>Sikre at havn, godsterminal, bane og vei planlegges i sammenheng, slik at mer gods kan fraktes på sjø og bane.</li>
+      <li>Arbeide for en framtidsrettet godsterminalløsning for Trondheim og regionen, med tilstrekkelig kapasitet og gode forbindelser mellom sjø, bane og vei.</li>
+      <li>Sikre god nok parkeringsdekning i areal- og reguleringsplaner.</li>
+    </ul>
+
+    <h3>Natur og miljø</h3>
+    <p>Trondheim Arbeiderparti vil redusere klimagassutslippene, ta vare på naturmangfoldet og sikre renere luft, sjø og vann. Vi vil bevare og utvikle grønne områder i hele byen og gjøre det enklere for innbyggerne å ta miljøvennlige valg i hverdagen.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Bevare markagrensa og tilgangen til grønne byrom.</li>
+      <li>Sikre og videreutvikle miljøvennlig kollektivtransport, og gjøre det lett å bevege seg rundt i byen til fots, på sykkel og for rullestol- og rullatorbrukere.</li>
+      <li>Legge til rette for at det er enkelt å ta miljøvennlige valg i hverdagen.</li>
+      <li>Ivareta natur- og artsmangfoldet.</li>
+      <li>Bygge byen basert på gode klima- og miljøløsninger for energi, materialvalg og samferdsel.</li>
+    </ul>
+
+    <h3>Beredskap</h3>
+    <p>Samfunnssikkerhet og beredskap er en av kommunens oppgaver, og har dessverre blitt stadig mer aktuelt de senere årene. Trondheim kommune må være forberedt på et bredt spekter av hendelser, fra bortfall av strøm og kommunikasjon og ekstremvær til terrorisme og krig. Trondheim Arbeiderparti vil arbeide for at sårbarheter i matforsyningen og andre forsyningskjeder kartlegges, sammen med relevante myndigheter, næringslivet og partene i arbeidslivet.</p>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Sikre nødstrømsaggregat på alle større kommunale boinstitusjoner.</li>
+      <li>Sikre tilgang til sekundær oppvarmingskilde ved kommunale boinstitusjoner.</li>
+      <li>Styrke kommunens arbeid med beredskap og krisehåndtering, i samråd med ansatte og tillitsvalgte i kommunen.</li>
+      <li>Bygge flere dekningsrom og tilfluktsrom, og styrke vedlikeholdet og opprustingen av eksisterende rom.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- =================== 9 STUDENTBYEN =================== -->
+<section class="chapter" id="studentbyen" data-title="Studentbyen Trondheim" data-sub="Boliger, møteplasser, helse og kollektivtilbud for studenter">
+  <div class="ch-body"><div class="content">
+    <div class="ingress">
+      <p>Vårt løfte er at Trondheim skal være en god, trygg og inkluderende studentby for alle.</p>
+    </div>
+    <p>For Trondheim Arbeiderparti er studentene en viktig del av byen vår. Studentene bidrar til fellesskapet gjennom frivillighet, kultur, idrett, arbeidsliv og engasjement, og er en viktig del av Trondheims identitet som kunnskaps- og studentby. Samtidig skal det være mulig å være student i Trondheim uavhengig av økonomi.</p>
+    <p>Vi vil sikre rimelige boliger, et godt kollektivtilbud, gode møteplasser og mulighet for deltakelse i kultur-, idretts- og organisasjonslivet. Samtidig vil vi styrke samarbeidet mellom kommunen, studentsamskipnaden, utdanningsinstitusjonene og studentorganisasjonene for å forbedre studentenes hverdag og sørge for at studentenes stemme blir hørt i utviklingen av byen.</p>
+
+    <h3>Prioriterte saker for perioden</h3>
+    <span class="lead-in">Trondheim Arbeiderparti vil:</span>
+    <ul class="points">
+      <li>Jobbe for at det bygges flere studentboliger i Trondheim, slik at flere studenter får tilgang til rimelige og trygge boliger med god tilgang til kollektivtransport, campus, sentrum og nærmiljø.</li>
+      <li>Sikre at bokvaliteten og brannsikkerheten er god i privatutleide boliger til studenter.</li>
+      <li>Sikre gode og trygge møteplasser for studenter i hele byen, både på og utenfor campus, gjennom tett samarbeid med Studentersamfundet og Studentsamskipnaden.</li>
+      <li>Styrke studentfrivilligheten gjennom gode og forutsigbare økonomiske rammer for studentorganisasjonene, og sikre støtte til sentrale arenaer som Studentersamfundet.</li>
+      <li>Sørge for at studentperspektivet blir ivaretatt i byutviklingen, og legge til rette for levende studentområder.</li>
+      <li>Sikre et tilstrekkelig helsetilbud for alle studenter, for både fysisk og psykisk helse, deriblant et kommunalt legetilbud.</li>
+      <li>Arbeide for et rimeligere, mer tilgjengelig og bedre kollektivtilbud på dagtid, kveldstid og i helgene.</li>
+      <li>Sikre gode og trygge gang- og sykkelforbindelser mellom studentområdene og resten av byen, og sykkelparkering rundt campus og studentboliger.</li>
+      <li>Innføre gratis bysykkel for studenter.</li>
+      <li>Sikre at Trondheim er en attraktiv studentby også utenom studieåret, ved å legge til rette for sommeraktiviteter, åpne møteplasser og sommerjobbmuligheter for studenter.</li>
+      <li>Gjøre Trondheim til en attraktiv by å bli værende i etter endt utdanning, og aktivt bruke studentenes kompetanse og engasjement i byens utvikling.</li>
+    </ul>
+  </div></div>
+</section>
+</main>
+
+<nav class="pager" id="pager" aria-label="Bla mellom kapitler">
+  <button id="prevBtn">← Forrige</button>
+  <button id="nextBtn">Neste →</button>
+</nav>
+
+<footer><div class="vote">Stem Arbeiderpartiet</div><div class="date">13. september</div></footer>
+
+<script>
+(function(){
+  // Solstråler
+  document.querySelectorAll('svg.rays').forEach(function(svg){
+    var g=svg.querySelector('g'); var ray=svg.querySelector('#ray');
+    for(var i=1;i<24;i++){var c=ray.cloneNode(true);c.removeAttribute('id');c.setAttribute('transform','rotate('+(i*15)+')');g.appendChild(c);}
+  });
+
+  var chapters=[].slice.call(document.querySelectorAll('section.chapter[data-title]'));
+  var home=document.getElementById('home');
+  var tiles=document.getElementById('tiles');
+  var drawerList=document.getElementById('drawerList');
+
+  function pad(n){return (n<10?'0':'')+n}
+
+  chapters.forEach(function(sec,i){
+    var n=i+1, title=sec.dataset.title, sub=sec.dataset.sub||'';
+    // Kapittelhode
+    var head=document.createElement('div'); head.className='ch-head';
+    head.innerHTML='<svg class="rays" viewBox="-800 -800 1600 1600" aria-hidden="true"><g fill="#fffaf0"></g></svg>'+
+      '<div class="ch-head-inner"><div class="ch-num">Kapittel '+n+'</div><h2 class="ch-title">'+title+'</h2></div>';
+    var g=head.querySelector('g');
+    for(var r=0;r<24;r++){var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d','M0 0 L-40 -800 L40 -800 Z');p.setAttribute('transform','rotate('+(r*15)+')');g.appendChild(p);}
+    sec.insertBefore(head,sec.firstChild);
+
+    // Innholdsliste i kapittelet
+    var body=sec.querySelector('.ch-body'); var content=sec.querySelector('.content');
+    var hs=[].slice.call(content.querySelectorAll('h3'));
+    var toc=document.createElement('aside'); toc.className='ch-toc';
+    var html='<h3>I dette kapitlet</h3><ul>';
+    hs.forEach(function(h,j){h.id=sec.id+'-'+(j+1);html+='<li><button data-scroll="'+h.id+'">'+h.textContent+'</button></li>';});
+    toc.innerHTML=html+'</ul>';
+    body.insertBefore(toc,content);
+
+    // Flis på forsiden
+    var t=document.createElement('button'); t.className='tile'; t.dataset.go=sec.id;
+    t.innerHTML='<span class="num">'+pad(n)+'</span><span><span class="t">'+title+'</span><span class="s" style="display:block">'+sub+'</span></span>';
+    tiles.appendChild(t);
+
+    // Meny
+    var li=document.createElement('li');
+    li.innerHTML='<button data-go="'+sec.id+'"><span class="n">'+pad(n)+'</span><span>'+title+'</span></button>';
+    drawerList.appendChild(li);
+  });
+  var homeLi=document.createElement('li');
+  homeLi.innerHTML='<button data-go="home"><span class="n">★</span><span>Forside</span></button>';
+  drawerList.insertBefore(homeLi,drawerList.firstChild);
+
+  var drawer=document.getElementById('drawer');
+  function closeDrawer(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');}
+  document.getElementById('openMenu').addEventListener('click',function(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');});
+
+  var prev=document.getElementById('prevBtn'), next=document.getElementById('nextBtn'), pager=document.getElementById('pager');
+
+  function show(id){
+    var idx=chapters.findIndex(function(s){return s.id===id});
+    home.classList.toggle('active',idx<0);
+    document.body.classList.toggle('home-view',idx<0);
+    chapters.forEach(function(s,i){s.classList.toggle('active',i===idx)});
+    pager.style.display=idx<0?'none':'flex';
+    if(idx>=0){
+      prev.hidden=idx===0; next.hidden=idx===chapters.length-1;
+      prev.textContent='← '+(idx>0?chapters[idx-1].dataset.title:'');
+      next.textContent=(idx<chapters.length-1?chapters[idx+1].dataset.title:'')+' →';
+      prev.dataset.go=idx>0?chapters[idx-1].id:''; next.dataset.go=idx<chapters.length-1?chapters[idx+1].id:'';
+    }
+    drawerList.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-current',b.dataset.go===(idx<0?'home':id)?'true':'false')});
+    window.scrollTo(0,0);
+  }
+  function route(){var h=location.hash.replace(/^#\/?/,'');show(h||'home');}
+
+  document.addEventListener('click',function(e){
+    var go=e.target.closest('[data-go]');
+    if(go&&go.dataset.go){e.preventDefault();closeDrawer();
+      var target=go.dataset.go==='home'?'':go.dataset.go;
+      var want=target?'#/'+target:'';if(want===location.hash||(!target&&!location.hash)) route(); else location.hash=want?'/'+target:'';
+      return;}
+    var sc=e.target.closest('[data-scroll]');
+    if(sc){document.getElementById(sc.dataset.scroll).scrollIntoView({behavior:'smooth'});return;}
+    if(e.target.closest('[data-close]'))closeDrawer();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer();});
+  window.addEventListener('hashchange',route);
+  route();
+})();
+</script>
+</body>
+</html>
